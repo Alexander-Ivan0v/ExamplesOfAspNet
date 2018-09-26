@@ -1,0 +1,9 @@
+C:\Projects\MSS\src\Mss.Common\bin\Debug\Mss.Common.dll
+C:\Projects\MSS\src\Mss.Common\bin\Debug\Mss.Common.pdb
+C:\Projects\MSS\src\Mss.Common\bin\Debug\AutoMapper.dll
+C:\Projects\MSS\src\Mss.Common\bin\Debug\log4net.dll
+C:\Projects\MSS\src\Mss.Common\bin\Debug\AutoMapper.xml
+C:\Projects\MSS\src\Mss.Common\bin\Debug\log4net.xml
+C:\Projects\MSS\src\Mss.Common\obj\Debug\Mss.Common.dll
+C:\Projects\MSS\src\Mss.Common\obj\Debug\Mss.Common.pdb
+C:\Projects\MSS\src\Mss.Common\obj\Debug\Mss.Common.csprojResolveAssemblyReference.cache
