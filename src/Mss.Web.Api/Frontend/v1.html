@@ -1,0 +1,1934 @@
+﻿<!doctype html>
+<html lang="us">
+<head>
+    <meta charset="utf-8">
+    <title>ICL Messaging Security Solution</title>
+
+    <style>
+        .minWidth200 {
+            min-width: 200px;
+        }
+        .retStatusDefault {
+            text-align: left;
+            color: #606060;
+        }
+        .retStatusOk {
+            text-align: left;
+            color: #164812;
+        }
+        .retStatusErr {
+            text-align: left;
+            color: #712323;
+        }
+        .inputParamName {
+            text-align: left;
+            color: #606060;
+        }
+        .inputParamValue {
+            text-align: left;
+            color: #000000;
+        }
+        .ui-widget-content li a {
+            text-decoration:none;
+            color:#204060;
+        }
+
+        .wrapperTask {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;  
+  
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+  
+            font-weight:normal;
+            text-align:left;
+
+            align-items:stretch;
+            }
+
+        .wrapperTask > * {
+            padding: 5px;
+            flex: 1 100%;
+        }
+
+        .headerTask {
+            /*background: tomato;*/
+            height: 10%;
+            font-weight:600;
+        }
+
+        .footerTask {
+            /*background: lightgreen;*/
+            align-content:center;
+            text-align:right;
+            padding:10px;
+        }
+
+        .mainTask {
+            text-align: left;
+            /*background: deepskyblue;*/
+            overflow-y:scroll;
+            height:65%;
+            align-items:stretch;
+        }
+
+        .wrapperMainTask {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;            
+  
+            -webkit-flex-flow: row wrap;
+            flex-flow:row wrap;
+  
+            font-weight:normal;
+            text-align:left;
+
+            align-items:stretch;
+        }
+
+        .mainTaskParam3Col {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;             
+  
+            -webkit-flex-flow: row wrap;
+            flex-flow:row wrap;
+            flex-wrap:wrap;
+
+            margin: 0px;
+            padding: 0px;
+
+            width:100%;
+            height:100%;
+
+            align-items:stretch;
+        }
+        .mainTaskCommon {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;  
+
+            flex-grow: 0;
+            -webkit-flex-grow: 0;
+  
+            -webkit-flex-flow: column wrap;
+            flex-flow:column wrap;
+  
+            font-weight:normal;
+            text-align:left;
+            margin: 5px;
+            padding: 5px;
+
+            border-right: 1px dotted #cccccc;
+            /*height: 80%;*/
+            min-width:100px;
+        }        
+        .mainTaskParam {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            align-content:flex-start;
+
+            flex-grow: 2;
+            -webkit-flex-grow: 2;
+
+            flex-shrink: 0;
+  
+            -webkit-flex-flow: column wrap;
+            flex-flow:column wrap;
+            flex-wrap:nowrap;
+  
+            font-weight:normal;
+            text-align:left;
+            margin: 5px;
+            padding: 5px;
+
+            /*height: 80%;*/
+
+            border-right: 1px dotted #cccccc;
+        }
+        .mainTaskComment {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;  
+
+            flex-grow: 0;
+            -webkit-flex-grow: 0;
+  
+            -webkit-flex-flow: column wrap;
+            flex-flow:column wrap;
+            flex-wrap:wrap;
+  
+            font-weight:normal;
+            text-align:left;
+            margin: 5px;
+            padding: 5px;
+
+            /*height: 80%;*/
+            width:200px;
+            max-width: 200px;
+        }
+        .mainTaskElement {
+            margin: 5px;
+        }
+
+        .mainTaskParam ol li {
+            margin: 10px;
+            padding:0px;
+        }
+        
+        .mainTaskElementHdr {
+            margin-bottom: 10px;
+            /*margin-top: 5px;*/
+            margin-left: 5px;
+            margin-right: 5px;
+            /*font-style:italic; */
+            color: #808080;
+        }
+
+        
+        @media all and (min-width: 600px) {
+            .aside { flex: 2 auto; }
+        }
+
+        @media all and (min-width: 800px) {
+            /*.mainTask    { flex: 3 0px; }*/
+            .mainTask    { order: 1; }
+            .footerTask  { order: 2; }
+        }
+        
+
+        .width100 {
+             width:100%;
+        }
+
+        .MainPage {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+
+            flex-direction: column;
+            justify-content:center;
+            align-self: auto;
+        }
+
+        .Hdr {
+            margin: 10px;
+            
+            list-style: none;
+            display: inline-block;
+
+            flex-direction:row;
+            flex-flow:row;
+        }
+
+        .Main {
+            margin: 10px;
+
+            flex-direction: row;
+            justify-content:center;
+            align-self: auto;
+            align-content:space-around;
+        }
+
+        .Footer {
+            margin: 10px;
+
+            flex-direction: row;
+            justify-content:center;
+            align-self: auto;
+            align-content:space-around;
+        }        
+
+        .StatusText {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+
+            flex-direction: row;
+            justify-content:flex-start;
+        }
+
+        body {
+            font: 62.5% "Fujitsu Sans Light" , calibri, tahoma, sans-serif;
+        }
+
+        .insideTab {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: row;
+            flex-wrap:nowrap;
+
+            align-items:stretch;
+        }
+        
+    </style>
+
+    <link href="/Frontend/external/jquery-ui/jquery-ui.css" rel="stylesheet">
+    <link href="/Frontend/external/dataTable/jquery.dataTable.min.css" rel="stylesheet">
+    <link href='/Frontend/img/favicon.ico' rel='icon' type='image/x-icon' />
+</head>
+
+
+<body>
+    <div class="MainPage">
+        <div class="Hdr">            
+            <div class="ui-widget-header ui-corner-all">
+                <div id="mainMenu"style="padding-top:2px;padding-left:2px;">
+                    <!-- Upper Menu Items start-->
+                    <!-- Tenants available -->
+                    <select name="tenant" id="tenant" title="Select a Tenant" style="width:300px; height:24px;"></select>                    
+                    <!-- Refresh -->
+                    <button id="refreshTnt" style="width:26px; height:26px; left:322px; position:absolute;">Refresh Tenants available for you</button>                    
+                    <button id="enterCred" style="width:26px; height:26px; left:348px; position:absolute;">Enter your Credential</button>
+                    <!-- Upper Menu Items end  -->                    
+               </div>
+            </div>
+        </div>
+        <div class="Main">
+            <div id="tabs">
+                <ul id="hdrs">
+                    <li><a href="#commonTab"><span>Common</span></a></li>
+                </ul>
+                <div id="commonTab">
+                    <p>
+                        <div>
+                            <div>
+                                <button id="rerun">Show Client Info</button>
+                                <button id="select">Select an action</button>
+                            </div>                            
+                            <ul style="width:250px; position:absolute;">
+                                <li onclick="showClientLog();">Show Client Log</li>                                
+                                <li onclick="showServerInfo();">Server Info</li>
+                                <li onclick="showRolesInfo();">Current Roles</li>
+                                <li>Gather Troubleshooting Info</li>
+                            </ul>
+
+                            <hr style="border-bottom:1px dotted #cccccc; border-top:0px; border-right:0px; border-left:0px;" />
+                            <div id="CommonInfo">
+                                
+                            </div>
+                            <hr style="border-bottom:1px dotted #cccccc; border-top:0px; border-right:0px; border-left:0px;" />
+                            <label id="CommonTimeStamp"style="color:#808080; font-family:Tahoma,Verdana,Calibri;"></label>
+                        </div>
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="Footer">
+            <div class="ui-widget">
+                <div id="StatusWidget" class="ui-state-highlight ui-corner-all" style="padding: 0px 0.7em;">
+                    <p>
+                        <table border="0">
+                            <tr>
+                                <td>
+                                    <span class="ui-icon ui-icon-info" id="FooterIco"></span>
+                                </td>
+                                <td id="FooterText">
+                                    <strong>2016-04-19 11:52:23</strong>
+                                    Blah, Blah, Blah...
+                                </td>
+                            </tr>
+                        </table>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login begin -->
+    <div id="dialog" title="Authentication data">
+        <p>
+            <table width="100%" border="0">
+                <tr><td><strong>Login</strong></td><td><input id="userLogin" type="text" class="ui-widget ui-widget-content ui-corner-all" style="width:220px;" value="mss.local\Administrator"></td></tr>
+                <tr><td style="margin-bottom:10px;border-bottom:1px dotted #cccccc;padding-bottom:5px;"><strong>Password</strong></td><td style="margin-bottom:10px;border-bottom:1px dotted #cccccc;padding-bottom:5px;"><input id="userPass" type="password" class="ui-widget ui-widget-content ui-corner-all" style="width:220px;" value="P@ssw0rd"></td></tr>
+                <tr><td><strong>Or provide your token</strong></td><td><textarea placeholder="<Contact MSS administrators>" id="userToken" name="theText" cols="31" rows="6" class="ui-widget ui-widget-content ui-corner-all"></textarea></td></tr>
+            </table>
+        </p>
+    </div>
+    <!-- Login end   -->
+
+
+    <!--  jQuery start -->
+    <script src="/Frontend/external/jquery/jquery.js" type="text/javascript"></script>
+    <script src="/Frontend/external/jquery-ui/jquery-ui.js" type="text/javascript"></script>
+    <script src="/Frontend/external/shortcut/shortcut.js" type="text/javascript"></script>
+    <script src="/Frontend/external/dataTable/jquery.dataTable.min.js" type="text/javascript"></script>
+    <!--  jQuery end   -->
+
+    <script>
+        var srvBase = "http://localhost:49279/";
+        var urlBase = srvBase + "api/v1/";        
+        var scrBase = srvBase + "Frontend/External/";
+        var unauthorizedTenantPlaceholder = "You must authorize first";
+        var authorizedTenantPlaceholder = "You must select a Tenant";
+        var removeMe = null;
+        var startSeq = 1;
+        var stopSeq = 100;
+        var loadScriptAsync = [];
+
+        shortcut.add("ctrl+enter", function () {
+            alert("Ctrl+Enter pressed");
+        });
+        
+        // --------- Status object begin ---------------
+        function Status(ico, text) {
+            this.StatusText = text;
+            this.ico = ico;
+            this.logMsg = [];
+            this.empty = function () {
+                $("#FooterWidget").fadeIn(1000);
+                $("#FooterIco").removeClass("ui-icon");
+                $("#FooterIco").removeClass("ui-icon-info");
+                $("#FooterIco").removeClass("ui-icon-alert");
+                $("#FooterIco").removeClass("ui-icon-circle-close");
+                $("#FooterIco").removeClass("ui-icon-circle-check");
+                $("#FooterText").empty();
+                $("#FooterWidget").fadeOut(1000);
+            };
+            this.getMsg = function () {
+                return this.logMsg;
+            };
+            this.setDefault = function (ico, text) {
+                this.set(this.ico, this.StatusText);
+            };
+            this.set = function (ico, text) {
+                var options = {};
+                $("#FooterWidget").hide("Blind", options, 1500);
+                $("#FooterIco").removeClass("ui-icon");
+                $("#FooterIco").removeClass("ui-icon-info");
+                $("#FooterIco").removeClass("ui-icon-alert");
+                $("#FooterIco").removeClass("ui-icon-circle-close");
+                $("#FooterIco").removeClass("ui-icon-circle-check");
+                $("#FooterIco").addClass("ui-icon");
+                switch (ico.toLowerCase()) {
+                    case "info":
+                        $("#FooterIco").attr("title", "Info");
+                        $("#FooterIco").addClass("ui-icon-info");
+                        break;
+                    case "warning":
+                        $("#FooterIco").attr("title", "Warning");
+                        $("#FooterIco").addClass("ui-icon-alert");
+                        break;
+                    case "error":
+                        $("#FooterIco").attr("title", "Error");
+                        $("#FooterIco").addClass("ui-icon-circle-close");
+                        break;
+                    case "ok":
+                        $("#FooterIco").attr("title", "OK");
+                        $("#FooterIco").addClass("ui-icon-circle-check");
+                        break;
+                }
+                //var newDate = new Date();
+                $("#FooterText").empty();
+                //var dat = newDate.getDate() + '.' + newDate.getMonth() + '.' + newDate.getFullYear() + ' ' + newDate.getHours() + ':' + newDate.getMinutes() + ':' + newDate.getSeconds();
+                var dat = myCommon.getDateTime();
+                $("#FooterText").append('<strong>[' + dat + '] </strong>' + text);
+                $("#FooterWidget").show("Slide", options, 1500);
+                this.logMsg.push({ ico: ico, date: dat, msg: text });
+                if ($("#ClntLogTable") != undefined) {
+                    myClnt.addToShowedLog(this.logMsg.length + 1, ico, dat, text);
+                }
+            }
+        }
+        // --------- Status object end   -------------
+
+        // ----- Common object start --------
+        function Common() {
+            this.objToResize = [];
+            this.getDateTime = function () {
+                var options = {
+                    hour: "2-digit", minute: "2-digit", second: "2-digit"
+                };                
+                var newDate = new Date();
+                return newDate.toLocaleDateString(navigator.language) + " " + newDate.toLocaleTimeString(navigator.language, options);
+            }
+            this.getDate = function () {
+                var newDate = new Date();
+                return newDate.toLocaleDateString(navigator.language);
+            }
+            this.addFunction = function(body) {
+                eval(body);
+            }
+            this.delFunction = function (name) {                
+                    window[name] = null;            
+            }
+            this.replaceFunction = function (name, body) {
+                this.delFunction(name);
+                this.addFunction(body);
+            }            
+            this.loadScriptWithCallback = function (url, callback, callbackparams) {
+                var script = document.createElement("script")
+                script.type = "text/javascript";
+
+                if (script.readyState) { //IE
+                    script.onreadystatechange = function () {
+                        if (script.readyState == "loaded" || script.readyState == "complete") {
+                            script.onreadystatechange = null;
+                            callback(callbackparams);
+                        }
+                    };
+                } else { //Others
+                    script.onload = function () {
+                        callback(callbackparams);
+                    };
+                }
+
+                script.src = url;
+                document.getElementsByTagName("head")[0].appendChild(script);
+            }
+
+            this.isScriptOrCssFileLoaded = function (fullPath, filetype) {
+                if (filetype == "js") {                    
+                    if (!$('script[src*="' + fullPath + '"]').length)
+                        return false;
+                    else
+                        return true;
+                }
+                else if (filetype == "css") {
+                    if (!$("link[href='" + fullPath + "']").length)
+                        return false;
+                    else
+                        return true;
+                }
+            }
+            this.delScriptOrCssFile = function(filename, filetype) {
+                var targetelement=(filetype=="js")? "script" : (filetype=="css")? "link" : "none" //determine element type to create nodelist from
+                var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none" //determine corresponding attribute to test for
+                var allsuspects=document.getElementsByTagName(targetelement)
+                for (var i=allsuspects.length; i>=0; i--){ //search backwards within nodelist for matching elements to remove
+                    if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(filename)!=-1)
+                        allsuspects[i].parentNode.removeChild(allsuspects[i]) //remove element by calling parentNode.removeChild()
+                }
+            }
+            this.addScriptOrCssFile = function(filename, filetype, callback, callbackparams){
+                if (filetype == "js") { //if filename is an external JavaScript file
+
+                    this.loadScriptWithCallback(filename, callback, callbackparams);
+
+                    /*
+                    this.loadScript(filename, function () {
+                        //script loaded
+                        console.log('Script loaded');
+                    });
+                    */
+
+                    /*var fileref = document.createElement('script');
+                    fileref.setAttribute("type", "text/javascript");
+                    fileref.setAttribute("src", filename);
+                    fileref.async = true;
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(fileref);
+                    */
+                }
+                else if (filetype=="css"){ //if filename is an external CSS file
+                    var fileref = document.createElement("link");
+                    fileref.setAttribute("rel", "stylesheet");
+                    fileref.setAttribute("type", "text/css");
+                    fileref.setAttribute("href", filename);
+                    (document.getElementsByTagName('head')[0]).appendChild(fileref);
+                    callback(callbackparams);
+                }
+                return fileref
+            } 
+            this.replaceScriptOrCssFile = function(oldfilename, newfilename, filetype){
+                var targetelement=(filetype=="js")? "script" : (filetype=="css")? "link" : "none" //determine element type to create nodelist using
+                var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none" //determine corresponding attribute to test for
+                var allsuspects=document.getElementsByTagName(targetelement)
+                for (var i=allsuspects.length; i>=0; i--){ //search backwards within nodelist for matching elements to remove
+                    if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(oldfilename)!=-1){
+                        var newelement = this.addScriptOrCssFile(newfilename, filetype)
+                        allsuspects[i].parentNode.replaceChild(newelement, allsuspects[i])
+                    }
+                }
+            }
+            this.windowResize = function() {
+                if(this.objToResize.length > 0) {
+                    this.objToResize.forEach(function (itm, i, arr) {
+                        // {master:obj, slave:obj}
+                        if (window[itm.master] != undefined && window[itm.slave] != undefined) {
+                            var toAdd = $("#" + itm.master).height();
+                            toAdd += itm.plusMinus;
+                            $("#" + itm.slave).height( toAdd );
+                            var a = itm;
+                        }
+                    });
+                }
+            }
+            this.addToResize = function(master, slave, plusMinus) {
+                this.objToResize.push({master:master, slave:slave, plusMinus:plusMinus});
+            }
+            this.delFromResize = function(master, slave) {
+                var idx = -1;
+                this.objToResize.forEach(function (itm, i, arr) {
+                    if(master == itm.master && itm.slave == slave)
+                        idx = i;
+                });
+                if(idx >= 0) 
+                    this.objToResize.splice(idx, 1)
+            }
+            this.createParamId = function (param, data, scrId, i) {
+                return "param_" + param.Id + "_srv_" + data.srvId + "_scr_" + scrId + "_i_" + i;
+            }
+            this.buildInputParamView = function(itm) {
+                return "<tr><td class='inputParamName'>" + itm.Name + ":</td><td class='inputParamValue'>" + itm.RunData.Data + "</td></tr>";
+            }
+            this.getParViewOptionBySeq = function (parViewOption, seq) {
+                var ret = [];
+                if (parViewOption != undefined && parViewOption != null) {
+                    if (parViewOption.length > 0) {
+                        parViewOption.forEach(function (itm, i, arr) {
+                            if (itm.Seq == seq)
+                                ret.push(itm);
+                        });
+                    }
+                }
+                return ret;
+            }
+            this.getParViewOptionByName = function (parViewOption, name) {
+                var ret = [];
+                if (parViewOption != undefined && parViewOption != null) {
+                    if (parViewOption.length > 0) {
+                        parViewOption.forEach(function (itm, i, arr) {
+                            if (itm.Seq == seq)
+                                ret.push(itm);
+                        });
+                    }
+                }
+                return ret;
+            }
+            this.getParViewOptionSortedBySeq = function (parViewOption, startI, stopI) {
+                var ret = [];
+                if (parViewOption != undefined && parViewOption != null) {
+                    if (parViewOption.length > 0) {
+                        for (var i = startI; i <= stopI; i++) {
+                            var q = this.getParViewOptionBySeq(parViewOption, i);
+                            if (q.length > 0) {
+                                q.forEach(function (itm, j, arr) {
+                                    ret.push(itm);
+                                });
+                            }
+                        }
+                    }
+                }
+                return ret;
+            }
+            this.scriptfileLoadedCallback = function (data) {
+                for(var i = 0; i < loadScriptAsync.length; i++) {
+                    if (loadScriptAsync[i].guid == data.guid) {
+                        loadScriptAsync[i].cnt += 1;
+                        if (loadScriptAsync[i].cnt == loadScriptAsync[i].total) {
+                            eval(data.script);
+                            loadScriptAsync.splice(i, 1);
+                        }
+                    }
+                }
+            }
+            this.guid = function() {
+                function s4() {
+                    return Math.floor((1 + Math.random()) * 0x10000)
+                      .toString(16)
+                      .substring(1);
+                }
+                return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+                  s4() + '-' + s4() + s4() + s4();
+            }
+            this.buildOutputParamView = function (param, paramName, data) {
+                var ret = { html: "", script: "" };
+                var scr = [];
+
+                var seq = this.getParViewOptionSortedBySeq(param.ParView.ParViewOption, startSeq, stopSeq);
+                if (seq.length > 0) {
+                    seq.forEach(function (itm, i, arr) {
+                        switch (itm.Name) {
+                            case "js:load":
+                                var ext = itm.Data.lastIndexOf('.');
+                                if (ext >= 0) {
+                                    ext = itm.Data.substring(ext + 1, itm.Data.length);
+                                    if (myCommon.isScriptOrCssFileLoaded(scrBase + itm.Data, ext) == false) {
+                                        scr.push({url:scrBase + itm.Data, ext:ext});                                        
+                                    }
+                                }
+                                break;
+                            case "js:html":
+                                ret.html = itm.Data;
+                                break;
+                            case "js:htmlinit":
+                                ret.html = eval(itm.Data);
+                                break;
+                            case "js:script":
+                                ret.script = itm.Data;
+                                break;
+                            case "js:scriptinit":
+                                ret.script = eval(itm.Data);
+                                break;
+                        } // switch
+                    }); // forEach
+                }
+
+
+/*
+                switch (param.ParView.Name) {
+                    case "simpletable":
+                        ret.script = "$('#" + paramName + "').DataTable({data: " + data + ", " + param.ParView.ParViewOption[0].Data.substring(1).substring(0, param.ParView.ParViewOption[0].Data.length - 2) + "});"
+                        ret.html = '<tr><td colspan="2" class="inputParamName">' + param.Name + ':<p><table id="' + paramName + '" class="display" cellspacing="0" width="100%"></table></p></td></tr>'
+                        break;
+                    case "chart":
+                        ret.html = '<tr><td colspan="2" class="inputParamName">' + param.Name + ':<p><div id="' + paramName + '"></div></p></td></tr>'
+                        ret.script = '$.jqplot.config.enablePlugins = true;  $.jqplot("{div}", {data},   {       title: "{title}",       seriesDefaults: {shadow: true, renderer: $.jqplot.PieRenderer, rendererOptions: { showDataLabels: true } },       legend: { show:true }   }); '
+                        eval('ret.script = ret.script.replace("{data}", param.RunData.Data).replace("{title}", "Title").replace("{div}", paramName);');
+                        if (myCommon.isScriptOrCssFileLoaded(scrBase + 'jqPlot/jquery.jqplot.min.js', 'js') == false) {
+                            myCommon.addScriptOrCssFile(scrBase + 'jqPlot/jquery.jqplot.min.js', 'js');
+                            myCommon.addScriptOrCssFile(scrBase + 'jqPlot/jquery.jqplot.min.css', 'css');
+                        }
+                        break;
+                    default:
+                        ret.html = "<tr><td class='inputParamName'>" + param.Name + ":</td><td class='inputParamValue'>" + param.RunData.Data + "</td></tr>";
+                        break;
+                }
+*/
+
+                if (scr.length > 0) {
+                    var guid = myCommon.guid();
+                    loadScriptAsync.push({ guid: guid, lastAccess: myCommon.getDateTime(), created: myCommon.getDateTime(), cnt: 0, total: scr.length });
+                    scr.forEach(function (itm, i, arr) {                        
+                         myCommon.addScriptOrCssFile(itm.url, itm.ext, myCommon.scriptfileLoadedCallback, {guid: guid, cur:i, total:scr.length, script:ret.script});
+                    });
+                    ret.script = "";
+                }
+
+                return ret;
+            }
+            this.getParamValue = function (paramName, param) {
+                switch (param.ParView.Name) {
+                    case 'text':
+                        return $("#" + paramName).val();
+                        break;
+                    case 'checkbox':
+                        break;
+                    case 'radio':
+                        break;
+                    case 'datetime':
+                        break;
+                    case 'special':
+                        break;
+                    case 'multiline':
+                        break;
+                    case 'spinner':
+                        return $("#" + paramName).val();
+                        break;
+                    case 'date':
+                        break;
+                    case 'time':
+                        break;
+                    case 'slider':
+                        break;
+                    case 'dropdown':
+                        break;
+                    case 'list':
+                        break;
+                    case 'range':
+                        break;
+                    case 'selectmenu':
+                        break;
+                    case 'radio':
+                        break;
+                    case 'simpletable':
+                        break;
+                    default:
+                        return undefined;
+                        break;
+                }
+            }
+            this.buildHtmlParam = function (param, data, scrId, i) {
+                var tmp1 = "<tr><td class='mainTaskElement'>" + param.Name + ":</td>";
+                var id = this.createParamId(param, data, scrId, i);
+                var scr = "";
+                switch (param.ParView.Name) {
+                    case 'text':
+                        tmp1 += "<td><input id='" + id + "' type='text' class='ui-widget ui-widget-content ui-corner-all' style='padding:3px;'></span></td>";
+                        break;
+                    case 'checkbox':
+                        break;
+                    case 'radio':
+                        break;
+                    case 'datetime':
+                        break;
+                    case 'special':
+                        break;
+                    case 'multiline':
+                        tmp1 += "<td><textarea id='" + id + "' placeholder='" + param.Comment + "' cols='22' rows='6' class='ui-widget ui-widget-content ui-corner-all'></textarea></td>";
+                        break;
+                    case 'spinner':
+                        tmp1 += "<td><input id='" + id + "'></td>";
+                        scr = "$('#" + id + "').spinner();";
+                        break;
+                    case 'date':
+                        break;
+                    case 'time':
+                        break;
+                    case 'slider':
+                        tmp1 += "<td><input id='" + id + "'></td>";
+                        scr = "$('#" + id + "').slider();";
+                        break;
+                    case 'dropdown':
+                        break;
+                    case 'list':
+                        break;
+                    case 'range':
+                        break;
+                    case 'selectmenu':
+                        break;
+                    case 'radio':
+                        break;
+                    default:
+                        break;
+                }
+                tmp1 += "</tr>";
+                /*<li><span class='mainTaskElement'><input id='id1' type='radio'><label for='id1'> Radio button</label></span></li> \
+                <li><span class='mainTaskElement'>TextBox: <input id='id2' type='text' class='ui-widget ui-widget-content ui-corner-all' style='padding:3px;'></span></li> \
+                <li><span class='mainTaskElement'><input id='id3' type='checkbox'><label for='id3'> Checkbox</label></span></li> \
+                <li><span class='mainTaskElement'>Spinner: <input id='id4'></span></li> \
+                <li><span class='mainTaskElement'>Slider: <div id='id5' style='width:200px;'></div></span></li> \*/
+                return {html:tmp1, scr:scr};
+
+            }
+            this.getNoTaskParamsMessage = function () {
+                return '<p><span style="color:#cccccc">&lt;Parameters don`t required&gt;</span></p>';
+            }
+        }
+        // ----- Common Object end  ---------
+
+        function ReflectConnectionState(auth) {
+            var qqq = $("#tenant").text().toLowerCase().indexOf(unauthorizedTenantPlaceholder.toLowerCase());
+            if (qqq >= 0) {
+                if (auth == true) {
+                    $("#tenant").remove();
+                    $("#mainMenu").append('<select name="tenant" id="tenant" title="Select a Tenant" style="width:300px; height:24px;"><option value="none">' + authorizedTenantPlaceholder + '</option></select>');
+                    $("#tenant").selectmenu({ change: function (event, ui) { myMainMenu.tenantChanged(event, ui); } });
+                }
+            }
+            if (qqq < 0 && auth == false) {
+                $("#tenant").remove();
+                $("#mainMenu").append('<select name="tenant" id="tenant" title="Select a Tenant" style="width:300px; height:24px;"><option value="none">' + unauthorizedTenantPlaceholder + '</option></select>');
+                $("#tenant").selectmenu({ change: function (event, ui) { myMainMenu.tenantChanged(event, ui); } });
+            }
+            //$("#tenant").refresh();
+        }
+
+        // --------- Clnt object start ---------------
+        function Clnt() {
+            this.Ver = "1.0";
+            this.Copy = "&copy; Alexander Ivanov 2016";
+            this.Api = "v1";
+            this.Author = "Alexander Ivanov";
+            this.Email = "Alexander.Ivanov.GDC@ts.fujitsu.com";
+            this.loginInfo = { Auth: "Basic", AuthData: "" };
+            this.weAreHere = { tntId: 0, srvId: 0, catId: 0, tskflw: "", tskflwId: 0 }
+            this.setOurPoint = function (tntId, srvId, catId, tskflw, tskflwId) {
+                this.weAreHere.tntId = tntId;
+                this.weAreHere.srvId = srvId;
+                this.weAreHere.catId = catId;
+                this.weAreHere.tskflw = tskflw;
+                this.weAreHere.tskflwId = tskflwId;
+            }
+            this.getOurPoint = function () {
+                return this.weAreHere;
+            }
+            this.ver = function () {
+                return this.Ver;
+            };
+            this.copyright = function () {
+                return this.Copy;
+            };
+            this.api = function () {
+                return this.Api;
+            };
+            this.author = function () {
+                return this.Author;
+            };
+            this.email = function () {
+                return this.Email;
+            };
+            this.addToShowedLog = function (i, ico, date, msg) {
+                if ($("#ClntLogTable") != undefined) {
+                    var row = "<tr>";
+                    switch (ico.toLowerCase()) {
+                        case "info":
+                            row += "<td><div id='icoinfo-" + i + "' class='ui-icon ui-icon-info'></div></td>";
+                            break;
+                        case "warning":
+                            row += "<td><div id='icowarning-" + i + "' class='ui-icon ui-icon-alert'></div></td>";
+                            break;
+                        case "error":
+                            row += "<td><div id='icoerror-" + i + "' class='ui-icon ui-icon-circle-close'></div></td>";
+                            break;
+                        case "ok":
+                            row += "<td><div id='icook-" + i + "' class='ui-icon ui-icon-circle-check'></div></td>";
+                            break;
+                    }
+
+                    row += "<td>[" + date + "]</td>";
+                    row += "<td>" + msg + "</td></tr>";
+                    $("#ClntLogTable").append(row);
+                }
+            }
+            this.showLog = function () {
+                $("#CommonInfo").empty();
+                $("#CommonInfo").append('<div id="ClntLog" title="Log" class="ui-widget ui-widget-content ui-corner-all" style="text-align:left; height:75px; overflow-y:scroll; padding:10px; margin:5px;"><table id="ClntLogTable" border="0"></table></div>');
+                var msg = myStatus.getMsg();
+                var those = this;
+                msg.forEach(function (itm, i, arr) {
+                    those.addToShowedLog(i, itm.ico, itm.date, itm.msg);
+                });
+            }            
+            this.getAjaxAsync = function (uri, auth, callback, callbackParams) {
+                var res = { rc: -1, data: null, msg: "", state: 0 };
+                var rcText = "";
+                var url = urlBase + uri;
+                var those = this;
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    beforeSend: function (xhr) {                        
+                        if (auth) {
+                            those.prepareCredential();
+                            xhr.setRequestHeader("Authorization", those.getAuthType() + " " + those.getAuthData());
+                        }
+                        xhr.setRequestHeader("Content-Type", "text/json");
+                        xhr.setRequestHeader("Accept", "text/json");
+                        //xhr.setRequestHeader("User-Agent", "AlexApp");
+                    },
+                    async: true,
+                    success: function (result) {
+                        //var posts = JSON.parse(result); 
+                        //$("#userToken").val(JSON.stringify(result));            
+                        res.rc = 0
+                    },
+                    error: function (result) {
+                        res.rc = -1;
+                    },
+                    complete: function (result) {
+                        res.msg = result.statusText;
+                        res.rc = result.status;
+                        res.state = result.readyState;
+                        if (res.state == 4 && res.rc == 200) {
+                            res.data = result.responseJSON;
+                            ico = "ok";
+                            ReflectConnectionState(true);
+                        }
+                        else if (res.rc == 401) {
+                            res.data = null;
+                            ico = "error"
+                            ReflectConnectionState(false);
+                            myTab.delAllTab();
+                        }
+                        myStatus.set(ico, "Ajax: " + res.msg + "&nbsp;&nbsp;&nbsp;[" + url + "]");
+                        callback(res, callbackParams);
+                    }
+                });
+                return res;
+            } // getAjaxAsync end
+            this.ajaxAsync = function(method, uri, auth, callback, data, callbackParams) {
+                var res = { rc: -1, data: null, msg: "", state: 0 };
+                var rcText = "";
+                var url = urlBase + uri;
+                var those = this;
+                $.ajax({
+                    url: url,
+                    type: method.toUpperCase(),
+                    data: JSON.stringify(data),
+                    beforeSend: function (xhr) {
+                        if (auth) { xhr.setRequestHeader("Authorization", those.getAuthType() + " " + those.getAuthData()); }
+                        xhr.setRequestHeader("Content-Type", "text/json");
+                        xhr.setRequestHeader("Accept", "text/json");
+                        //xhr.setRequestHeader("User-Agent", "AlexApp");
+                    },
+                    async: true,
+                    success: function (result) {
+                        //var posts = JSON.parse(result); 
+                        //$("#userToken").val(JSON.stringify(result));
+                        res.data = result.responseJSON;
+                        ico = "ok";
+                        ReflectConnectionState(true);
+                    },
+                    error: function (result) {
+                        res.data = null;
+                        ico = "ok";
+                        ReflectConnectionState(false);
+                        myTab.delAllTab();
+                    },
+                    complete: function (result) {
+                        res.msg = result.statusText;
+                        res.rc = result.status;
+                        res.state = result.readyState;
+                        if (res.state == 4 && res.rc == 200) {
+                            res.data = result.responseJSON;
+                            rcText = "Ajax Success";
+                        }
+                        else {
+                            res.data = null;
+                            rcText = "Ajax Error"
+                        }
+                        myStatus.set(ico, res.msg + "&nbsp;&nbsp;&nbsp;[" + url + "]");
+                        callback(res, callbackParams);
+                    }
+                });
+                return res;
+
+            } // ajaxAsync end
+            this.prepareCredential = function () {
+                var u = $("#userLogin").val();
+                var p = $("#userPass").val();
+                var result = null;
+                var a = ""
+
+                if (($("#userLogin").val() == "" || $("#userPass").val() == "") && $("#userToken").val() == "") {
+                    myStatus.set("Error", "PrepareCredentials: You did not entered Credentials. Until it so, yot can't use the application");
+                }
+                else {
+                    myStatus.set("Info", "PrepareCredentials: Credential present");
+                    if ($("#userToken").val() != "") {
+                        // Will use Token
+                        this.loginInfo = { Auth: "Bearer", AuthData: $("#userToken").val() }
+                    }
+                    else if (u != "" && p != "") {
+                        // Will use Login/Password
+                        this.loginInfo.Auth = "Basic";
+                        a = btoa(u + ":" + p);
+                        this.loginInfo.AuthData = a;
+                    }
+                }
+            } //prepareCredential end
+            this.getAuthType = function () {
+                return this.loginInfo.Auth;
+            }
+            this.getAuthData = function () {
+                return this.loginInfo.AuthData;
+            }
+            this.gotTskFlwResult = function (res, param) {
+                // param: { tskflw:tskflw, tntId:tntId, srvId:srvId, catId:catId, tskflwId:tskflwId }
+                if (res.state == 4 && res.rc == 200) {
+                    TaskFlowSelected("last", param.tskflw, param.tntId, param.srvId, param.catId, param.tskflwId, res.data);
+                }
+            } //gotTskFlwResult end
+            this.gotTskFlwAndRunIt = function (res, param) {
+                if (res.state == 4 && res.rc == 200) {
+                    if (res.data.Action != null && res.data.Action != undefined) {
+                        if (res.data.Action.Par.length > 0) {
+                            var ret = {};
+                            res.data.Action.Par.forEach(function (itm, i, arr) {
+                                if (itm.IsInput) {
+                                    var paramId = myCommon.createParamId(itm, param, res.data.Action.Id, i);
+                                    if (paramId != undefined && paramId != null) {
+                                        var q = myCommon.getParamValue(paramId, itm);                                        
+                                        ret[itm.Name] = q;
+                                        paramId = null;
+                                    }
+                                }
+                            });
+                            ret = { json: JSON.stringify(ret) };
+                        }
+                    }
+                    else {
+                        myStatus.set(warning, "No action defined for this " + param.tskflw);
+                    }
+                    myClnt.ajaxAsync("POST", "run/" + param.tskflw + "/" + param.tskflwId + "/tenant/" + param.tntId, true, myClnt.gotTskFlwResult, ret, param);
+                }
+            } //gotTskFlwAndRunIt end
+            this.gotTaskFlow = function (res, param) {
+                // param: { tskflw:tskflw, tntId:tntId, srvId:srvId, catId:catId, tskflwId:tskflwId }
+                if (res.state == 4 && res.rc == 200) {
+                    if (window['TskFlwPanel_' + param.srvId] != undefined && window['TskFlwHdr_' + param.srvId] != undefined && window['TskFlwBody_' + param.srvId] != undefined) {
+                        var heightPrev = $("#acc_" + param.tntId + "_srv_" + param.srvId).height();
+                        // --- Empty to default values ---
+                        $('#TskFlwHdr_' + param.srvId).text('Retriving ' + param.tskflw + ' information...');
+                        $('#TskFlwBody_' + param.srvId).empty();
+                        $('#TskFlwBody_' + param.srvId).append('<p><span style="color:#cccccc">&lt;Awaiting data from server...&gt;</span></p>');
+                        // --- Fill in Task/Flow data ---
+                        $('#TskFlwHdr_' + param.srvId).text(res.data.Name + " (" + param.tskflw + ")").attr("title", res.data.Comment);
+                        $('#TskFlwBody_' + param.srvId).empty();
+                        var resTskFlw = " \
+                            <div id='TskFlwBodyRun_" + param.srvId + " class = 'wrapperMainTask'> \
+                                <div class='mainTaskParam3Col'> \
+                                    <div id='mainTskCommon_" + param.srvId + "' class='mainTaskCommon'><span class='mainTaskElementHdr'>Common</span>{commonParams}</div> \
+                                    <div id='mainTskParam_" + param.srvId + "' class='mainTaskParam'><span class='mainTaskElementHdr'>Params</span> \
+                                        <span class='mainTaskElement'>{taskFlowParams}</span> \
+                                    </div> \
+                                    <div id='mainTaskComment_'" + param.srvId + " class='mainTaskComment'> \
+                                        <span class='mainTaskElementHdr'>Comments</span> \
+                                        <span class='mainTaskElement'>" + res.data.Comment + "</span> \
+                                    </div> \
+                                </div> \
+                            </div> \
+                        ";
+
+                        if (param.tskflw == "flow") {
+                            // This is a flow
+                            var tmp1 = "<span class='mainTaskElement'><input type='checkbox' id='IsDel_" + param.srvId + "'><label for='IsDel_" + param.srvId + "'>Deleted</label></span> \
+                                        <span class='mainTaskElement'><input type='checkbox' id='IsDisabled_" + param.srvId + "'><label for='IsDisabled_" + param.srvId + "'>Disabled</label></span> \
+                                        <span class='mainTaskElement'><input type='checkbox' id='IsSupport_" + param.srvId + "'><label for='IsSupport_" + param.srvId + "'>Support</label></span>";
+                            resTskFlw = resTskFlw.replace("{commonParams}", tmp1);
+                            // --- Dealing with Parameters begin ---
+                            var tmp2 = "";
+
+                            resTskFlw = resTskFlw.replace("{taskFlowParams}", tmp2);
+                            // --- Dealing with Parameters end   ---
+                            $('#TskFlwBody_' + param.srvId).append(resTskFlw);                            
+                            $("#IsDel_" + param.srvId).attr("disabled", true);
+                            $("#IsDel_" + param.srvId).attr("checked", res.data.IsDel);
+                            $("#IsDisabled_" + param.srvId).attr("disabled", true);
+                            $("#IsDisabled_" + param.srvId).attr("checked",res.data.IsDisabled);
+                            $("#IsSupport_" + param.srvId).attr("disabled", true);
+                            $("#IsSupport_" + param.srvId).attr("checked", res.data.IsSupport);
+                            
+                            $("#acc_" + param.tntId + "_srv_" + param.srvId).accordion("option", "heightStyle", "fill");
+                            //$('#TskFlwPanel_' + param.srvId).height(heightPrev-22);
+                            // myCommon.addToResize("acc_" + param.tntId + "_srv_" + param.srvId, 'TskFlwPanel_' + param.srvId, -22);
+                        }
+                        else {
+                            // This is a task
+                            var tmp1 = "<span class='mainTaskElement'><input type='checkbox' id='IsDel_" + param.srvId + "'><label for='IsDel_" + param.srvId + "'>Deleted</label></span> \
+                                        <span class='mainTaskElement'><input type='checkbox' id='IsDisabled_" + param.srvId + "'><label for='IsDisabled_" + param.srvId + "'>Disabled</label></span> \
+                                        <span class='mainTaskElement'><input type='checkbox' id='IsSupport_" + param.srvId + "'><label for='IsSupport_" + param.srvId + "'>Support</label></span> \
+                                        <span class='mainTaskElement'><input type='checkbox' id='IsLongRunning_" + param.srvId + "'><label for='IsLongRunning_" + param.srvId + "'>Long Running</label></span> \
+                                        <span class='mainTaskElement'><input type='checkbox' id='IsRollbackDisabled_" + param.srvId + "'><label for='IsRollbackDisabled_" + param.srvId + "'>Rollback is Disabled</label></span> \
+                            ";
+                            resTskFlw = resTskFlw.replace("{commonParams}", tmp1);
+                            // --- Dealing with Parameters begin ---
+                            var tmp2 = "";
+                            var scr = [];
+                            if (res.data.Action != null && res.data.Action != undefined) {
+                                if (res.data.Action.Par.length > 0) {
+                                    tmp2 += " <table border='0'>";
+                                    res.data.Action.Par.forEach(function (itm, i, arr) {
+                                        if(itm.IsInput) {
+                                            var qqq =  myCommon.buildHtmlParam(itm, param, res.data.Action.Id, i);
+                                            tmp2 += qqq.html;
+                                            if (qqq.scr != "")
+                                                scr.push(qqq.scr);
+                                        }
+                                    });
+                                    tmp2 += " </table>";
+                                }
+                                else {
+                                    tmp2 += myCommon.getNoTaskParamsMessage();
+                                }
+                            }
+                            else {
+                                tmp2 += myCommon.getNoTaskParamsMessage();
+                            }
+                            resTskFlw = resTskFlw.replace("{taskFlowParams}", tmp2);
+                            // --- Dealing with Parameters end   ---
+                            $('#TskFlwBody_' + param.srvId).append(resTskFlw);
+                            scr.forEach(function (script, j, www) {
+                                eval(script);
+                            });
+                            $("#IsDel_" + param.srvId).attr("disabled", true);
+                            $("#IsDel_" + param.srvId).attr("checked", res.data.IsDel);
+                            $("#IsDisabled_" + param.srvId).attr("disabled", true);
+                            $("#IsDisabled_" + param.srvId).attr("checked", res.data.IsDisabled);
+                            $("#IsSupport_" + param.srvId).attr("disabled", true);
+                            $("#IsSupport_" + param.srvId).attr("checked", res.data.IsSupport);
+                            $("#IsLongRunning_" + param.srvId).attr("disabled", true);
+                            $("#IsLongRunning_" + param.srvId).attr("checked", res.data.IsLongRunning);
+                            $("#IsRollbackDisabled_" + param.srvId).attr("disabled", true);
+                            $("#IsRollbackDisabled_" + param.srvId).attr("checked", res.data.IsRollbackDisabled);
+                        }
+                        $("#acc_" + param.tntId + "_srv_" + param.srvId).accordion("option", "heightStyle", "fill");
+                        var e = document.getElementById("#acc_" + param.tntId + "_srv_" + param.srvId);
+                    }
+                }
+                else {closeTskFlwPanel(param.tskflw, param.tntId, param.srvId, param.catId, param.tskflwId)}
+            } //gotTaskFlow end
+            this.gotTaskFlowRunResult = function (res, param) {
+                if (res.state == 4 && res.rc == 200) {
+                    if (window['TskFlwPanel_' + param.srvId] != undefined && window['TskFlwHdr_' + param.srvId] != undefined && window['TskFlwBody_' + param.srvId] != undefined) {                        
+                        var name = "&lt;none&gt;";
+                        var action = [];
+                        var comment = "";
+                        var actualData = [];
+
+                        if (res.data == null) {
+                            $('#TskFlwHdr_' + param.srvId).text("Mentioned " + param.tskflw + " has been never runned");
+                        }
+                        else {
+                            var outputScripts = [];
+                            if (res.data.Tsk != undefined) {
+                                tskflw = res.data.Tsk;
+                                action.push(res.data.Tsk.Action);
+                            }
+                            else {
+                                tskflw = res.data.Flw;                                
+                                tskflw.Tsk.forEach(function (itm, i, arr) {
+                                    action.push(itm);
+                                });
+                            }
+                            name = tskflw.Name;
+                            if (tskflw.Comment != undefined && res.data.Tsk.Comment != null)
+                                comment = tskflw.Comment;
+                            $('#TskFlwHdr_' + param.srvId).text(name + " (" + param.tskflw + ")").attr("title", comment);
+
+                            var dict = {};
+                            dict["0"] = "OK";
+                            dict["-1"] = "Error";
+                            dict["-2"] = "Exception";
+                            dict["-99"] = "LongRunning";
+                            dict["-100"] = "Fatal";
+                            dict["-999"] = "Prepared";
+                            dict["-1000"] = "NotRunned";
+
+                            // Chg of Run
+                            var status = "Ran <ul><li class='retStatusDefault'>by: " + res.data.Chg[0].ChgBy.Name + "</li><li class='retStatusDefault'>at: " + res.data.Chg[0].ChgDate + "</li></ul><p>Details:<ol>";
+                            var psRetStatusClass = "retStatusDefault";
+                            var retCode = "&lt;None&gt;";
+                            res.data.Chg.forEach(function (itm, i, arr) {
+                                var tit = "";
+                                if (itm.ChgLog != undefined && itm.ChgLog != undefined)
+                                    tit = itm.ChgLog.Comment;                                
+                                switch (itm.ChgState.Name) {
+                                    case "PS Return Code":
+                                        retCode = dict[itm.ChgLog.Comment];
+                                        if (dict[itm.ChgLog.Comment] == "OK")
+                                            psRetStatusClass = "retStatusOk";
+                                        else
+                                            psRetStatusClass = "retStatusErr";
+                                        break;
+                                    case "PS Return Msg":
+                                        status += "<li class='" + psRetStatusClass + "' title='" + itm.ChgDate + "'>[" + retCode + "] :" + itm.ChgLog.Comment + "</li>";
+                                        break;
+                                    default:
+                                        status += "<li class='retStatusDefault' title='" + itm.ChgDate + "'>" + itm.ChgState.Name + "</li>";
+                                        break;
+                                }
+                            });
+                            status += "</ol>";
+
+                            var resTskFlw = " \
+                            <div id='TskFlwBodyRun_" + param.srvId + " class = 'wrapperMainTask'> \
+                                <div class='mainTaskParam3Col'> \
+                                    <div id='mainTskCommon_" + param.srvId + "' class='mainTaskCommon'><span class='mainTaskElementHdr'>Input</span>{inputParams}</div> \
+                                    <div id='mainTskParam_" + param.srvId + "' class='mainTaskParam'><span class='mainTaskElementHdr'>Output</span> \
+                                        <span class='mainTaskElement'>{outputData}</span> \
+                                    </div> \
+                                    <div id='mainTaskComment_'" + param.srvId + " class='mainTaskComment'> \
+                                        <span class='mainTaskElementHdr'>Status</span> \
+                                        <span class='mainTaskElement'>" + status + "</span> \
+                                    </div> \
+                                </div> \
+                            </div> \
+                            ";
+
+                            // --- Dealing with Parameters begin ---
+                            var tmp2 = "";
+                            var tmp3 = "";
+                            if (action != null && action != undefined) {                                
+                                if (res.data.Par.length > 0) {
+                                    tmp2 += " <table border='0'>";
+                                    tmp3 += " <table border='0'>";
+
+                                    // Ordering by Seq asc
+                                    var par = myCommon.getParViewOptionSortedBySeq(res.data.Par, startSeq, stopSeq);
+
+                                    par.forEach(function (itm, j, www) {
+                                        if (itm.IsInput) {
+                                            // Input param
+                                            tmp2 += myCommon.buildInputParamView(itm, myCommon.createParamId(itm, param, action[0].Id, j), null);
+                                        }
+                                        else {
+                                            //  Output param
+                                            try {
+                                                actualData = JSON.parse(par[j].RunData.Data);
+                                            } catch (ex) {}
+                                            outputParam = myCommon.buildOutputParamView(itm, myCommon.createParamId(itm, param, action[0].Id, j), "actualData");
+                                            outputScripts.push(outputParam.script);
+                                            tmp3 += outputParam.html;
+                                        }
+                                    });
+                                    tmp2 += " </table>";
+                                    tmp3 += " </table>";
+                                }
+                                else {
+                                    tmp2 += myCommon.getNoTaskParamsMessage();
+                                }                                
+                            }
+                            else {
+                                tmp2 += myCommon.getNoTaskParamsMessage();
+                            }
+                            resTskFlw = resTskFlw.replace("{inputParams}", tmp2);
+                            resTskFlw = resTskFlw.replace("{outputData}", tmp3);
+                            // --- Dealing with Parameters end   ---
+                            
+                        }                        
+                        $('#TskFlwBody_' + param.srvId).empty();
+                        $('#TskFlwBody_' + param.srvId).append(resTskFlw);
+
+                        outputScripts.forEach(function (itm, i, arr) {
+                            if(itm != null && itm != "")
+                                eval(itm);
+                        });
+                    }
+                }
+            } //gotTaskFlowRunResult end
+            this.gotTaskFlowRunHistory = function (res, param) {
+                $('#TskFlwBody_' + param.srvId).empty();
+                if (res.state == 4 && res.rc == 200) {
+                    var tableData = [];
+                    if (res.data == null) {
+                        $('#TskFlwHdr_' + param.srvId).text("Mentioned " + param.tskflw + " has been never runned");
+                    }
+                    else {
+                        var itm = res.data[0];
+                        if (itm.Tsk != null) {
+                            tskflw = itm.Tsk;
+                        }
+                        else {
+                            tskflw = itm.Flw;
+                        }
+                        if (tskflw.Comment != undefined && tskflw.Comment != null)
+                            comment = tskflw.Comment;
+                        $('#TskFlwHdr_' + param.srvId).text(tskflw.Name + " (" + param.tskflw + ")").attr("title", comment);
+
+                        res.data.forEach(function (itm, i, arr) {
+                            var a = [];
+                            a.push(tskflw.Id);
+                            a.push("TaskFlowSelected('last', '" + param.tskflw + "', " + param.tntId + ", " + param.srvId + ", " + param.catId + ", " + param.tskflwId + ", { Id: " + itm.Id + " });");
+                            a.push(tskflw.Name);
+                            a.push(itm.Chg[0].ChgDate);
+                            a.push(itm.Chg[0].ChgBy.Name);
+                            tableData.push(a);
+                        });
+                        if (window['TskFlwPanel_' + param.srvId] != undefined && window['TskFlwHdr_' + param.srvId] != undefined && window['TskFlwBody_' + param.srvId] != undefined) {
+                            var resTskFlw = " \
+                                <div id='TskFlwBodyRun_" + param.srvId + " class = 'wrapperMainTask'> \
+                                    <div id='mainTskCommon_" + param.srvId + "' class='mainTaskCommon' style='border-right: 0px;'><span class='mainTaskElementHdr'>History</span>{runHistory}</div> \
+                                </div> \
+                            ";
+                            var replaceTo = '<table id="runHistory_' + param.srvId + '" class="display" cellspacing="0" width="100%"></table>';
+                            resTskFlw = resTskFlw.replace("{runHistory}", replaceTo);
+
+                            $('#TskFlwBody_' + param.srvId).append(resTskFlw);
+
+                            if (tableData != undefined && tableData != null) {
+                                $('#runHistory_' + param.srvId).DataTable({
+                                    data: tableData,
+                                    columns: [
+                                        { "title": "Id", visible: false, field:"Id" },
+                                        { "title": "Fn", visible: false, field:"Fn" },
+                                        { "title": "Name", visible: true, field:"Name" },
+                                        { "title": "Date", visible: true, field:"Date" },
+                                        { "title": "Runner", visible: true, field:"Runner" }
+                                    ]
+                                });
+                                var td = $('#runHistory_' + param.srvId).dataTable();
+                                $('#runHistory_' + param.srvId).on('dblclick', 'tr', function () {
+                                    var row = td.fnGetData(this);
+                                    console.log(row);
+                                    eval(row[1]);
+                                });
+                            }
+                        }                        
+                    }
+                }
+            } //gotTaskFlowRunHistory end
+            this.gotTenantConcreatInfo = function (res, param) {
+                myTab.delAllTab();
+                    myTnt.updateInfo(res.data);
+                    res.data.Srv.forEach(function (itm, i, arr) {
+                        var catBody = "<div id='insideTab_" + res.data.Id + "_srv_" + itm.Id + "' class='insideTab'><div id='acc_" + res.data.Id + "_srv_" + itm.Id + "' class='width100' style='min-height:100%;'>";
+                        itm.Cat.forEach(function (cat, j, qqq) {
+                            catBody += "<h3>" + cat.Name + "</h3><div><p>";
+                            catBody += "<p>Tasks<hr style='border-top:1px dotted #cccccc;border-bottom:0px;border-left:0px;border-right:0px; min-width:200px'/>";
+                            if (cat.Tsk.length > 0) {
+                                catBody += '<ul>';
+                                cat.Tsk.forEach(function (tsk, k, www) {
+                                    catBody += '<li title="' + tsk.Comment + '" onClick="TaskFlowSelected(\'detail\', \'task\', ' + res.data.Id + ',' + itm.Id + ',' + cat.Id + ',' + tsk.Id + ')"><a href="#">' + tsk.Name + '</a></li>';
+                                });
+                                catBody += '</ul>'
+                            }
+                            else { catBody += '<span style="color:#aaaaaa">&lt;There are no Tasks available for you in this Category&gt;</span>' }
+                            catBody += "</p>"
+                            catBody += "<p>Flows<hr style='border-bottom:1px dotted #cccccc;border-top:0px;border-left:0px;border-right:0px; min-width:200px'/>";
+                            if (cat.Flw.length > 0) {
+                                catBody += '<ul>';
+                                cat.Flw.forEach(function (flw, k, www) {
+                                    catBody += '<li title="' + flw.Comment + '" onClick="TaskFlowSelected(\'detail\', \'flow\', ' + res.data.Id + ',' + itm.Id + ',' + cat.Id + ',' + flw.Id + ')"><a href="#">' + flw.Name + '</a></li>';
+                                });
+                                catBody += '</ul>'
+                            }
+                            else { catBody += '<span style="color:#aaaaaa">&lt;There are no Flows available for you in this Category&gt;</span>' }
+                            catBody += "</p>"
+                            catBody += "</p></div></h3>"
+                        });
+                        catBody += "</div></div>"
+                        myTab.addTab("tnt-" + res.data.Id + "-srv-" + itm.Id, itm.Name, catBody);
+                        $("#acc_" + res.data.Id + "_srv_" + itm.Id).accordion({ heightStyle: "content" }); // "fill", "content", "auto"
+                    });
+                    // Roles list on current tenant
+                    myClnt.getAjaxAsync("common/role/" + $("#tenant").val(), true, myClnt.gotRolesOnTenant, { tntId: $("#tenant").val() });
+                } //gotTenantConcreatInfo end
+            this.gotRolesOnTenant = function (res, param) {
+                if (res.state == 4 && res.rc == 200) {
+                    myTnt.setRoles(res.data);
+                }
+            }
+
+        }
+        // --------- Clnt object end   ---------------
+
+        function fuckYou(res, param) {
+            alert("Fuck you!");
+        }
+
+        // --------- Srv object start ---------------
+        function Srv(supportedApi, comp, copy, author, email, descr, prod, tit, version, mainName) {
+            this.Api = supportedApi;
+            this.Company = comp;
+            this.Copy = copy;
+            this.Author = author;
+            this.Email = email;
+            this.Descr = descr;
+            this.Product = prod;
+            this.Title = tit;
+            this.Ver = version;
+            this.MainTenantName = mainName;
+            this.Authorized = false;
+
+            this.updateSrvInfo = function(supportedApi, comp, copy, author, email, descr, prod, tit, version, mainName, auth) {
+                this.Api = supportedApi;
+                this.Company = comp;
+                this.Copy = copy;
+                this.Author = author;
+                this.Email = email;
+                this.Descr = descr;
+                this.Product = prod;
+                this.Title = tit;
+                this.Ver = version;
+                this.MainTenantName = mainName;
+                this.Authorized = auth;
+            }
+            this.api = function () {
+                return this.Api;
+            };
+            this.company = function () {
+                return this.Company;
+            };
+            this.copyright = function () {
+                return this.Copy;
+            };            
+            this.author = function () {
+                return this.Author;
+            };
+            this.email = function () {
+                return this.Email;
+            };
+            this.description = function () {
+                return this.Descr;
+            };
+            this.product = function () {
+                return this.Product;
+            };
+            this.title = function () {
+                return this.Title;
+            };
+            this.ver = function () {
+                return this.Ver;
+            };
+            this.mainTenantName = function () {
+                return this.MainTenantName;
+            };
+        }
+        // --------- Srv object end   ---------------
+
+        // ------ Tab Object start ------
+        function Notetab() {
+            this.Tabs = [];
+            this.refreshTab = function (tabId) {
+                var tabs = $("#tabs").tabs();
+                tabs.tabs("refresh");
+            }
+            this.addTab = function (tabId, tabHdr, tabContent) {
+                /*
+                var tabs = $("#tabs").tabs();
+                var ul = tabs.find("ul");
+                $("<li><a href='#" + tabId + "'>" + tabHdr + "</a></li>").appendTo(ul);
+                $("<div id='" + tabId + "'><p>" + tabContent + "</p></div>").appendTo(tabs);
+                */
+
+                var tabs = $("#tabs").tabs();
+                var ul = $("#hdrs");
+                $("<li><a href='#" + tabId + "'>" + tabHdr + "</a></li>").appendTo(ul);
+                $("<div id='" + tabId + "'><p>" + tabContent + "</p></div>").appendTo(tabs);
+
+
+                tabs.tabs("refresh");
+                this.Tabs.push(tabId);
+            };
+
+            this.delTab = function (tabId) {
+                var idx = this.Tabs.indexOf(tabId);
+                if (idx > -1) {
+                    var tabs = $("#tabs").tabs();
+                    var ul = tabs.find("ul");
+
+                    // Remove the panel
+                    $("#" + tabId).remove();
+                    // Refresh the tabs widget
+                    tabs.tabs("refresh");
+
+                    // Remove the tab
+                    var hrefStr = "a[href='#" + tabId + "']"
+                    $(hrefStr).closest("li").remove();
+                
+                    this.Tabs.splice(idx, 1);
+                }
+            }
+
+            this.delAllTab = function () {
+                var that = this;
+                var arrOfTabs = this.Tabs.slice();
+                arrOfTabs.forEach(function (itm, i, arr) {
+                    that.delTab(itm);
+                });
+            };
+        }
+        // ------ Tab Object end   ------
+
+        // ------ MainMenu Object begin ------
+        function MainMenu(tab) {
+            this.tab = tab;
+            this.tenantChanged = function (event, ui) {
+                myClnt.getAjaxAsync("tenant/" + $("#tenant").val(), true, myClnt.gotTenantConcreatInfo, { id: $("#tenant").val(), name: $("#tenant option:selected" ).text() });
+            };
+        }
+        // ------ MainMenu Object end  -------
+
+        $.arrayIntersect = function (a, b) {
+            return $.grep(a, function (i) {
+                return $.inArray(i, b) > -1;
+            });
+        };
+
+        // ------ Tnt Object start ---------
+        function Tnt() {
+            this.tnt = null;
+            this.roles = null;
+            this.updateInfo = function (tnt) {
+                this.tnt = tnt;
+            }
+            this.getName = function () {
+                if (this.tnt != undefined && this.tnt != null) {
+                    return this.tnt.Name
+                }
+                return null;
+            };
+            this.getServices = function (serviceNameOrId) {
+                if (this.tnt != undefined && this.tnt != null) {
+                    if (serviceNameOrId == undefined) {
+                        return this.tnt.Srv;
+                    }
+                    else {
+                        this.tnt.Srv.forEach(function (itm, i, arr) {
+                            if (itm.Name == serviceNameOrId || itm.Id == serviceNameOrId);
+                            return itm;
+                        });
+                        return null;
+                    }
+                }
+                return null;
+            };
+            this.setRoles = function(roles) {
+                this.roles = roles;
+            }
+            this.getRoles = function () {
+                return this.roles;
+            }
+        }
+        // ------ Tnt Object end  ----------
+
+        // ------ User Object start --------
+        function Usr() {
+            this.usr = null;
+            this.updateInfo = function (usr) {
+                this.usr = usr;
+            }
+            this.getName = function () {
+                if (this.usr != undefined && this.usr != null) {
+                    return this.usr.Name
+                }
+                return null;
+            };
+            this.getRole = function (roleNameOrId) {
+                if (this.usr != undefined && this.usr != null) {
+                    if (roleNameOrId == undefined) {
+                        return this.usr.Rol;
+                    }
+                    else {
+                        usr.Rol.forEach(function (itm, i, arr) {
+                            if (itm.Name == roleNameOrId || itm.Id == roleNameOrId);
+                            return itm;
+                        });
+                        return null;
+                    }
+                }
+                return null;
+            };
+            this.getRoleCategories = function (roleNameOrId) {                
+                var r = this.getRole(roleNameOrId);
+                if (r != null && r.length == 0) {
+                    return r.Cat;
+                }
+                else if (r != null && r.length > 0) {
+                    var res = [];
+                    r.forEach(function (itm, i, arr) {
+                        itm.Cat.forEach(function (cat, j, aaa) {
+                            res.push(cat);
+                        });
+                    });
+                    return res;
+                }
+                return null;                
+            };
+            this.doesItHaveThisRole = function(roleNameOrId) {
+                var r = this.getRole(roleNameOrId);
+                if (r != null)
+                    return true;
+                return false;
+            }
+            this.doesItHaveThisRoleCategory = function (categoryNameOrId) {
+                var roles = this.getRole();
+                if (roles != null) {
+                    roles.forEach(function (r, j, ar) {
+                        r.Cat.forEach(function (itm, i, arr) {
+                            if (itm.Name == categoryNameOrId || itm.Id == categoryNameOrId) {
+                                return true;
+                            }
+                        });
+                    });
+                }
+                return false;
+            }
+        }
+        // ------ User Object end  ---------
+        
+        // ----- SplitButton on Common Tab start ------
+        $(function () {
+            $("#rerun")
+              .button()
+              .click(function () {
+                  $("#CommonInfo").empty();
+                  
+                  var tbl = "<table border='0'>";
+                  tbl += "<tr><td rowspan='6'><img src='/Frontend/img/Shield.png' width='96' height='96'></td>";
+                  tbl += "<td>Copyright:</td><td>" + myClnt.copyright() + "</td></tr>";
+                  tbl += "<tr><td>Version:</td><td>" + myClnt.ver() + "</td></tr>";
+                  tbl += "<tr><td>Supported API:</td><td>" + myClnt.api() + "</td></tr>";
+                  tbl += "<tr><td>Author:</td><td>" + myClnt.author() + "</td></tr>";
+                  tbl += "<tr><td>E-mail:</td><td>" + myClnt.email() + "</td></tr>";
+                  tbl += "</table>";
+                  $("#CommonInfo").append(tbl);
+                  $("#CommonTimeStamp").text(myCommon.getDateTime());
+              })
+              .next()
+                .button({
+                    text: false,
+                    icons: {
+                        primary: "ui-icon-triangle-1-s"
+                    }
+                })
+                .click(function () {
+                    var menu = $(this).parent().next().show().position({
+                        my: "left top",
+                        at: "left bottom",
+                        of: this
+                    });
+                    $(document).one("click", function () {
+                        menu.hide();
+                    });
+                    return false;
+                })
+                .parent()
+                  .buttonset()
+                  .next()
+                    .hide()
+                    .menu();
+        });
+
+        function finallyRemoveDiv() {
+            if (removeMe != null && removeMe != undefined) {
+                removeMe.remove();
+            }
+        }
+        function closeTskFlwPanel(tskflw, tntId, srvId, catId, tskflwId, onComplete) {
+            options = { to: { width: 0 } };
+            options1 = {};
+            removeMe = $("#TskFlwPanel_" + srvId);            
+            $("#TskFlwPanel_" + srvId).hide("drop", { direction: "right" }, "fast", finallyRemoveDiv)
+            $("#acc_" + tntId + "_srv_" + srvId).addClass('width100').effect("slide", options1, 500, onComplete);
+        }        
+
+        function TaskFlowSelected(action, tskflw, tntId, srvId, catId, tskflwId, data) {
+            myClnt.setOurPoint(tntId, srvId, catId, tskflw, tskflwId)
+
+            $("#TskFlwPanel_" + srvId).remove();
+            if (window["TskFlwPanel_" + srvId] == undefined) {
+                var taskComposite = ' ' +
+                    '<div id="TskFlwPanel_' + srvId + '" class="ui-widget-content ui-corner-all width100 wrapperTask" style="padding:10px; margin-left:10px;"> ' +                        
+                    '    <div class="headerTask"><table width="100%"><tr><td width="99%"><span  Id="TskFlwHdr_' + srvId + '">Retriving ' + tskflw + ' information...</span></td><td><div class="ui-icon ui-icon-closethick" title="Close panel" onClick="closeTskFlwPanel(\'' + tskflw + '\',' + tntId + ',' + srvId + ',' + catId + ',' + tskflwId + ')"></div></td></tr></table></div> ' +
+                    '    <div id="TskFlwBody_' + srvId + '" class="mainTask"> ' +
+                    '        <p><span style="color:#cccccc">&lt;Awaiting data from server...&gt;</span></p> ' +
+                    '    </div> ' +
+                    '    <div class="footerTask"> ' +
+                    '        <div> ' +
+                    '          <button id="btn_' + srvId + '" onClick="runTaskFlow(\'' + tskflw + '\', ' + tntId + ', ' + srvId + ', ' + catId + ', ' + tskflwId + ')">Run</button> ' +
+                    '          <button id="select">Other actions</button> ' +
+                    '        </div> ' +
+                    '        <ul style="width:250px; position:absolute;"> ' +
+                    '            <li onclick="TaskFlowSelected(\'last\', \'' + tskflw + '\', ' + tntId + ', ' + srvId + ', ' + catId + ', ' + tskflwId + ');">Last run</li> ' +
+                    '            <li onclick="TaskFlowSelected(\'history\', \'' + tskflw + '\', ' + tntId + ', ' + srvId + ', ' + catId + ', ' + tskflwId + ');">Run history</li> ' +
+                    '            <li onclick="TaskFlowSelected(\'detail\', \'' + tskflw + '\', ' + tntId + ', ' + srvId + ', ' + catId + ', ' + tskflwId + ');">Run parameters</li> ' +
+                    '        </ul> ' +
+                    '    </div> ' +
+                    '</div> ';
+                options = { to: { width: 200 } };
+                $("#acc_" + tntId + "_srv_" + srvId).effect("size", options, 300);
+                $("#acc_" + tntId + "_srv_" + srvId).removeClass('width100');
+                $("#insideTab_" + tntId + "_srv_" + srvId).append(taskComposite);
+                $("#btn_" + srvId)
+                  .button()
+                  .next()
+                    .button({
+                        text: false,
+                        icons: {
+                            primary: "ui-icon-triangle-1-s"
+                        }
+                    })
+                    .click(function () {
+                        var menu = $(this).parent().next().show().position({
+                            my: "left top",
+                            at: "left bottom",
+                            of: this
+                        });
+                        $(document).one("click", function () {
+                            menu.hide();
+                        });
+                        return false;
+                    })
+                    .parent()
+                      .buttonset()
+                      .next()
+                        .hide()
+                        .menu();
+            }
+            switch(action) {
+                case "detail": 
+                    myClnt.getAjaxAsync(tskflw + "/" + tskflwId + "/category/" + catId + "/service/" + srvId + "/tenant/" + $("#tenant").val(), true, myClnt.gotTaskFlow, { tskflw: tskflw, tntId: tntId, srvId: srvId, catId: catId, tskflwId: tskflwId });
+                    $("#btn_" + srvId).button("enable");
+                    break;
+                case "last":
+                    if (data == undefined)
+                        data = { Id: 0 };
+                    myClnt.getAjaxAsync(tskflw + "/" + tskflwId + "/category/" + catId + "/service/" + srvId + "/tenant/" + $("#tenant").val() + "/run/" + data.Id, true, myClnt.gotTaskFlowRunResult, { tskflw: tskflw, tntId: tntId, srvId: srvId, catId: catId, tskflwId: tskflwId, data: data });
+                    $("#btn_" + srvId).button( "disable" );
+                    break;
+                case "history":
+                    if (data != undefined) {
+
+                    }
+                    myClnt.getAjaxAsync(tskflw + "/" + tskflwId + "/category/" + catId + "/service/" + srvId + "/tenant/" + $("#tenant").val() + "/history", true, myClnt.gotTaskFlowRunHistory, { tskflw: tskflw, tntId: tntId, srvId: srvId, catId: catId, tskflwId: tskflwId });
+                    $("#btn_" + srvId).button("disable");
+                    break;
+            }
+            $('#TskFlwPanel_' + srvId).attr("height", $("#acc_" + tntId + "_srv_" + srvId).attr("height"));
+        }
+
+        function runTaskFlow(tskflw, tntId, srvId, catId, tskflwId) {
+            param = { tskflw: tskflw, tntId: tntId, srvId: srvId, catId: catId, tskflwId: tskflwId }
+
+            // find params by mask. Starts with "param_"
+            // var params = $('[id^="param_"]');
+
+            myClnt.getAjaxAsync(tskflw + "/" + tskflwId + "/category/" + catId + "/service/" + srvId + "/tenant/" + $("#tenant").val(), true, myClnt.gotTskFlwAndRunIt, { tskflw: tskflw, tntId: tntId, srvId: srvId, catId: catId, tskflwId: tskflwId });            
+        }
+
+        $("#dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            width: 400,
+            buttons: [
+                {
+                    text: "Check & Store",
+                    click: function () {
+                        myClnt.getAjaxAsync("common/init", true, updateSrvInfo);
+                        $(this).dialog("close");
+                    }
+                },
+                {
+                    text: "Store",
+                    click: function () {
+                        myClnt.prepareCredential();
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+
+        function updateTntCombo(res, param) {
+            if (res.state == 4 && res.rc == 200) {
+                $("#tenant").empty();
+                res.data.forEach(function (itm, i, arr) {
+                    $("#tenant").append("<option value='" + itm.Id + "'>" + itm.Name + "</option>");
+                });
+                $("#tenant").selectmenu("refresh");
+                myMainMenu.tenantChanged(null, null);
+            }
+        }
+
+        function updateSrvInfo(res, param) {
+            var auth = false;
+            if (res.state == 4 && res.rc == 200) {
+                auth = true;
+                mySrv.updateSrvInfo(res.data.ApiVersions, res.data.Company, res.data.Copyright, res.data.Author, res.data.AuthorEmail, res.data.Description, res.data.Product, res.data.Title, res.data.Version, res.data.MainTenantName, auth);
+                myUsr.updateInfo(res.data.usr);
+                myClnt.getAjaxAsync("common/tenant", true, updateTntCombo);
+            }
+            else {
+                mySrv.updateSrvInfo(null, null, null, null, null, null, null, null, null, null, auth);
+            }
+        }
+
+        function showClientLog() {
+            myClnt.showLog();
+        }
+
+        function showRolesInfo() {
+            $("#CommonInfo").empty();
+            var str = "<table border='0'><tr><th style='text-align:left;'>Role Name</th><th style='text-align:left;'>Description</th></tr>";
+            var roles = myTnt.getRoles()
+            if (roles != null) {
+                roles.forEach(function (itm, i, arr) {
+                    str += "<tr><td>" + itm.Name + "</td><td>" + itm.Comment + "</td></tr>"
+                });
+            }
+            $("#CommonInfo").append(str);
+            $("#CommonTimeStamp").text(myCommon.getDateTime());
+        }
+
+        function showServerInfo() {
+            $("#CommonInfo").empty();
+            var str ="<table border='0'>";
+            str += "<tr><td>Supported API:</td><td>" + mySrv.api() + "</td></tr>";
+            str += "<tr><td>Company:</td><td>" + mySrv.company() + "</td></tr>";
+            str += "<tr><td>Copyright:</td><td>" + mySrv.copyright() + "</td></tr>";
+            str += "<tr><td>Author:</td><td>" + mySrv.author() + "</td></tr>";
+            str += "<tr><td>E-mail:</td><td>" + mySrv.email() + "</td></tr>";
+            str += "<tr><td>Description:</td><td>" + mySrv.description() + "</td></tr>";
+            str += "<tr><td>Product:</td><td>" + mySrv.product() + "</td></tr>";
+            str += "<tr><td>Title:</td><td>" + mySrv.title() + "</td></tr>";
+            str += "<tr><td>Version:</td><td>" + mySrv.ver() + "</td></tr>";
+            str += "<tr><td>Main Tenant Name:</td><td>" + mySrv.mainTenantName() + "</td></tr>";
+            str += "</table>";
+            $("#CommonInfo").append(str);
+            $("#CommonTimeStamp").text(myCommon.getDateTime());
+        }
+
+        function EnterCred() {
+            $("#dialog").dialog("open");
+            event.preventDefault();
+
+            //myTab.delTab("newTab");
+        }
+
+        function RefreshTnt() {
+            //myTab.delAllTab();
+            //myTab.addTab("newTab", "Important", "Hi there!");
+            var taskComposite = '\
+            <div id="qwerty" class="ui-widget-content ui-corner-all width100 wrapperTask" style="height:auto; padding:10px; margin-left:10px;"> \
+                <header class="headerTask"><table width="100%"><tr><td width="99%">Header</td><td><div class="ui-icon ui-icon-closethick" title="Close panel"></div></td></tr></table></header> \
+                <article class="mainTask"> \
+                    <p>adsdasdasdasdasdasdasdasdasdasdasdas fdsgfddfhfghgfdhdgfhdfghd fghdfghdgfhdgfhdgfhdgfhd gfhdgfhdgf fhgfhg gf hgfhgfhgfhg gfhgfhgfh gfhdgfhgfh dfghdf ghdfghgh fghghgfshddfgh</p> \
+                </article> \
+            </div> \
+            ';
+
+            options = { to: { width: 200 } };
+            $("#acc_1_srv_1").effect("size", options, 500);
+            $("#acc_1_srv_1").removeClass('width100');
+            $("#insideTab_1_srv_1").append(taskComposite);
+        }
+
+        var myCommon = new Common();
+        var myClnt = new Clnt();
+        var mySrv = new Srv();
+        var myStatus = new Status("Info", "Starting...");
+        var myTab = new Notetab();
+        var myMainMenu = new MainMenu(myTab);
+        var myUsr = new Usr();
+        var myTnt = new Tnt();
+
+        // ================ AUTOSTART ======================
+        $(function () {
+            $(document).tooltip();
+
+            $(window).resize(function () {
+                //myCommon.windowResize();
+            });
+
+            $("#tenant").selectmenu({change: function (event, ui) {myMainMenu.tenantChanged(event, ui);}});
+            $("#tenant").val(unauthorizedTenantPlaceholder);
+            $("#tenant").text(unauthorizedTenantPlaceholder);
+
+            $("#refreshTnt").button({
+                text: false,
+                icons: { primary: "ui-icon-arrowrefresh-1-w" }
+            });
+            $("#refreshTnt").click(RefreshTnt);
+
+            $("#enterCred").button({
+                text: false,
+                icons: { primary: "ui-icon-key" }
+            });
+            $("#enterCred").click(EnterCred);
+
+            $("#rerun").button().click();
+
+            myClnt.getAjaxAsync("common/init", true, updateSrvInfo);
+        });
+        // =================================================
+        
+        $("#tabs").tabs();
+
+
+
+
+
+        // --- Program start ---
+        $(document).ready(function () {
+            myStatus.setDefault();            
+        });
+        // --------------------
+
+    </script>
+</body>
+
+</html>

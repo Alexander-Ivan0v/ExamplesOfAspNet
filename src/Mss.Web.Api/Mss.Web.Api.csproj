@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA607688-453E-4656-A7B6-D6BEFCCD151A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mss.Web.Api</RootNamespace>
+    <AssemblyName>Mss.Web.Api</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\lib\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\lib\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\lib\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\lib\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\lib\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\lib\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\..\lib\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\..\lib\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Tracing, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Microsoft.AspNet.WebApi.Tracing.5.2.3\lib\net45\System.Web.Http.Tracing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Automation" />
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\..\lib\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\lib\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Frontend\external\dataTable\jquery.dataTable.min.css" />
+    <Content Include="Frontend\external\dataTable\jquery.dataTable.min.js" />
+    <Content Include="Frontend\external\jqPlot\excanvas.js" />
+    <Content Include="Frontend\external\jqPlot\jquery.jqplot.min.css" />
+    <Content Include="Frontend\external\jqPlot\jquery.jqplot.min.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.barRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.BezierCurveRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.blockRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.bubbleRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.canvasAxisLabelRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.canvasAxisTickRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.canvasOverlay.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.canvasTextRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.categoryAxisRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.ciParser.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.cursor.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.dateAxisRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.donutRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.dragable.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.enhancedLegendRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.enhancedPieLegendRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.funnelRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.highlighter.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.json2.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.logAxisRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.mekkoAxisRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.mekkoRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.meterGaugeRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.mobile.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.ohlcRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.pieRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.pointLabels.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.pyramidAxisRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.pyramidGridRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.pyramidRenderer.js" />
+    <Content Include="Frontend\external\jqPlot\plugins\jqplot.trendline.js" />
+    <Content Include="Frontend\external\jquery-ui\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Frontend\external\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Frontend\external\jquery-ui\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Frontend\external\jquery-ui\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Frontend\external\jquery-ui\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Frontend\external\jquery-ui\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Frontend\external\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Frontend\external\jquery-ui\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Frontend\external\jquery-ui\images\ui-icons_454545_256x240.png" />
+    <Content Include="Frontend\external\jquery-ui\images\ui-icons_888888_256x240.png" />
+    <Content Include="Frontend\external\jquery-ui\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Frontend\external\jquery-ui\index.html" />
+    <Content Include="Frontend\external\jquery-ui\jquery-ui.css" />
+    <Content Include="Frontend\external\jquery-ui\jquery-ui.js" />
+    <Content Include="Frontend\external\jquery-ui\jquery-ui.min.css" />
+    <Content Include="Frontend\external\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Frontend\external\jquery-ui\jquery-ui.structure.css" />
+    <Content Include="Frontend\external\jquery-ui\jquery-ui.structure.min.css" />
+    <Content Include="Frontend\external\jquery-ui\jquery-ui.theme.css" />
+    <Content Include="Frontend\external\jquery-ui\jquery-ui.theme.min.css" />
+    <Content Include="Frontend\external\jquery\jquery.js" />
+    <Content Include="Frontend\external\shortcut\shortcut.js" />
+    <Content Include="Frontend\img\favicon.ico" />
+    <Content Include="Frontend\img\Shield.png" />
+    <Content Include="Frontend\v1.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfigurator.cs" />
+    <Compile Include="App_Start\NinjectConfigurator.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="AutoMappingConfiguration\ChgEntityToChgMinAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ChgMinToChgEntiryAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ChgStateEntityToChgStateMinAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ChgStateMinToChgStateEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\FlwEntityToFlwMinAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\FlwMinToFlwEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\FlwTskMinResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\ParEntityToParWRunDataAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ParWRunDataToParEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="AutoMappingConfiguration\CatEntityToCatAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\CatFlwResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\CatToCatEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\CatTskResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\CfgChgResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\CfgEntityToCfgAutomapperTypeConfiguratir.cs" />
+    <Compile Include="AutoMappingConfiguration\CfgEntityToCfgWOChgAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\CfgToCfgEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\CfgWOChgToCfgEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ChgEntityToChgAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ChgLogEntityToChgLogAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ChgLogToChgLogEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ChgStateEntityToChgStateAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ChgStateGrpEntityToChgStateGrpAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ChgStateGrpToChgStateGrpEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ChgStateToChgStateEntityAutomapperTypeconfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ChgToChgEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ClamavCfgCatResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\ClamavCfgEntityToClamavCfgAutomappertypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ClamavCfgToClamavCfgEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\FlwEntityToFlwAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\FlwToFlwEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\FlwTskResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\JabberCfgCatResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\JabberCfgEntityToJabberCfgAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\JabberCfgToJabberCfgEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\LibEntityToLibAutomapperTypeconfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\LibToLibEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ParEntityToParAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ParSpecailEntityToParSpecialAutoMapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ParSpecialToParSpecialEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ParToParEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ParTypeEntityToParTypeAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ParTypeToParTypeEntityAutomappertypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ParViewEntityToParViewAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ParViewOptionEntityToParViewOptionAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ParViewOptionToParViewOptionEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ParViewParViewOptionResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\ParViewToParViewEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\PostfixCfgCatResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\PostfixCfgEntityToPostfixCfgAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\PostfixCfgToPostfixCfgEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\RolCatResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\RolEntityToRolMinAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\RolMinToRolEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\RunChgMinResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\RunChgResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\RunDataChgResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\RunDataEntityToRunDataAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\RunDataEntityToRunDataWOParAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\RunDataToRunDataEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\RunDataWOParToRunDataEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\RunEntityToRunAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\RunEntityToRunMinAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\RunMinToRunEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\RunParResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\RunToRunEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ScrEntityToScrAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\ScrLibResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\ScrToScrEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\SpamassasinCfgCatResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\SpamassasinCfgEntityToSpamassasinCfgAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\SpamassasinCfgToSpamassasinCfgEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\SrvCatResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\SrvClamavCfgResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\SrvEntityToSrvAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\SrvJabberCfgResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\ScrParResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\SrvPostfixCfgResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\SrvSpamassasinCfgResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\SrvToSrvEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TntSrvResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\TskEntityToTskAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TskEntityToTskMinAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TskMinToTskEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TskToTskEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\UserEntityToUsrJustNameAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\UsrEntityToUsrMidAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\UsrJustNameToUsrEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\UsrNewToUsrEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\RolEntityToRolAutomapperTypeconfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\RolToRolEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TeamChgResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\TeamEntityToTeamAutoMapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TeamEntityToTeamOnlyAutoMappingTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TeamEntityToTeamWOChgAutomapperTypeconfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TeamOnlyToTeamEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TeamToTeamEntityAutoMapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TeamWOChgToTeamEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TntChgResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\TntEntityToTntAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TntEntityToTntWOChgAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TntOnlyToTntEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TntToTntEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\TntWOChgToTntEntityAutoMapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\UsrChgResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\UsrEntityToUsrAutomapperTypeConfigurator.cs" />
+    <Compile Include="AutoMappingConfiguration\UsrRolResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\UsrTeamResolver.cs" />
+    <Compile Include="AutoMappingConfiguration\UsrToUsrEntityAutomapperTypeConfigurator.cs" />
+    <Compile Include="Controllers\v1\CfgController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\v1\CfgMssController.cs" />
+    <Compile Include="Controllers\v1\CommonController.cs" />
+    <Compile Include="Controllers\v1\FlowController.cs" />
+    <Compile Include="Controllers\v1\RunController.cs" />
+    <Compile Include="Controllers\v1\TaskController.cs" />
+    <Compile Include="Controllers\v1\TeamMssController.cs" />
+    <Compile Include="Controllers\v1\TenantController.cs" />
+    <Compile Include="Controllers\v1\TenantMssController.cs" />
+    <Compile Include="Controllers\v1\UserMssController.cs" />
+    <Compile Include="Controllers\v2\TeamController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InquiryProcessing\GetCfgInquiryProcessor.cs" />
+    <Compile Include="InquiryProcessing\GetTeamInquiryProcessor.cs" />
+    <Compile Include="InquiryProcessing\GetTntInquiryProcessor.cs" />
+    <Compile Include="InquiryProcessing\IGetCfgInquiryProcessor.cs" />
+    <Compile Include="InquiryProcessing\GetUsrInquiryProcessor.cs" />
+    <Compile Include="InquiryProcessing\IGetFlwInquiryProcessor.cs" />
+    <Compile Include="InquiryProcessing\IGetTeamInquiryProcessor.cs" />
+    <Compile Include="InquiryProcessing\IGetTntInquiryProcessor.cs" />
+    <Compile Include="InquiryProcessing\IGetUsrInquiryProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\AddCfgMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\AddRunDataMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\AddRunMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\AddTeamMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\AddTntMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\AddUsrMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\CfgCreatedActionResult.cs" />
+    <Compile Include="MaintenanceProcessing\IAddCfgMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\IAddRunDataMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\IAddRunMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\IAddTeamMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\IAddTntMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\IAddUsrMaintenanceProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\IRunWorkflowProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\LocationLinkCalculator.cs" />
+    <Compile Include="MaintenanceProcessing\RunWorkflowProcessor.cs" />
+    <Compile Include="MaintenanceProcessing\TeamCreatedActionResult.cs" />
+    <Compile Include="MaintenanceProcessing\TntCreatedActionResult.cs" />
+    <Compile Include="MaintenanceProcessing\UsrCreatedActionResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\BasicAuthenticationMessageHandler.cs" />
+    <Compile Include="Security\BasicSecurityService.cs" />
+    <Compile Include="Security\IBasicSecurityService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mss.Ad\Mss.Ad.csproj">
+      <Project>{afda09d4-ee3d-461f-9eef-6eb39a73ba88}</Project>
+      <Name>Mss.Ad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mss.Common\Mss.Common.csproj">
+      <Project>{664d6663-fa51-4e5f-854a-7cb0f112cd16}</Project>
+      <Name>Mss.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mss.Data.SqlServer\Mss.Data.SqlServer.csproj">
+      <Project>{3e2a7f4e-a9fd-4d7b-84cf-a0e80fc92acf}</Project>
+      <Name>Mss.Data.SqlServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mss.Data\Mss.Data.csproj">
+      <Project>{dc86e624-c924-449c-a174-6954be79693d}</Project>
+      <Name>Mss.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mss.Ps\Mss.Ps.csproj">
+      <Project>{68023ad3-d206-4b43-b342-e0f560d9bffd}</Project>
+      <Name>Mss.Ps</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mss.Web.Api.Models\Mss.Web.Api.Models.csproj">
+      <Project>{5688e106-4600-47d3-94b5-7e5f36e5208d}</Project>
+      <Name>Mss.Web.Api.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mss.Web.Common\Mss.Web.Common.csproj">
+      <Project>{58e0900d-17f5-4308-9ade-ed547d322f5a}</Project>
+      <Name>Mss.Web.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49279</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49279/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
