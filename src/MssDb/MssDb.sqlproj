@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>MssDb</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{c65e95f1-3d41-4b67-9175-49d7b9545140}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>MssDb</RootNamespace>
+    <AssemblyName>MssDb</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Scripts" />
+    <Folder Include="Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\ChgStateGrp.sql" />
+    <Build Include="Tables\ParType.sql" />
+    <Build Include="Tables\ParView.sql" />
+    <Build Include="Tables\Cat.sql" />
+    <Build Include="Tables\Flw.sql" />
+    <Build Include="Tables\Lib.sql" />
+    <Build Include="Tables\Scr.sql" />
+    <Build Include="Tables\LogImp.sql" />
+    <Build Include="Tables\LogType.sql" />
+    <Build Include="Tables\Usr.sql" />
+    <Build Include="Tables\CatTsk.sql" />
+    <Build Include="Tables\FlwTsk.sql" />
+    <Build Include="Tables\TskChg.sql" />
+    <Build Include="Tables\FlwChg.sql" />
+    <Build Include="Tables\LibChg.sql" />
+    <Build Include="Tables\RunPar.sql" />
+    <Build Include="Tables\ScrPar.sql" />
+    <Build Include="Tables\ScrLib.sql" />
+    <Build Include="Tables\ScrChg.sql" />
+    <Build Include="Tables\ParViewChg.sql" />
+    <Build Include="Tables\ParTypeChg.sql" />
+    <Build Include="Tables\ParChg.sql" />
+    <Build Include="Tables\CfgChg.sql" />
+    <Build Include="Tables\UsrChg.sql" />
+    <Build Include="Tables\UsrRol.sql" />
+    <Build Include="Tables\Log.sql" />
+    <Build Include="Tables\Rol.sql" />
+    <Build Include="Tables\Chg.sql" />
+    <Build Include="Tables\ChgState.sql" />
+    <Build Include="Tables\Cfg.sql" />
+    <Build Include="Tables\Tnt.sql" />
+    <Build Include="Tables\Par.sql" />
+    <Build Include="Tables\Run.sql" />
+    <Build Include="Tables\RunChg.sql" />
+    <Build Include="Tables\Tsk.sql" />
+    <Build Include="Tables\Team.sql" />
+    <Build Include="Tables\UsrTeam.sql" />
+    <Build Include="Tables\ChgLog.sql" />
+    <Build Include="Tables\TeamChg.sql" />
+    <Build Include="Tables\ParSpecial.sql" />
+    <Build Include="Tables\ParSpecialChg.sql" />
+    <Build Include="Tables\TntChg.sql" />
+    <Build Include="Tables\Srv.sql" />
+    <Build Include="Tables\CatFlw.sql" />
+    <Build Include="Tables\RolCat.sql" />
+    <Build Include="Tables\FlwOrder.sql" />
+    <Build Include="Tables\RunDataChg.sql" />
+    <Build Include="Tables\PostfixCfg.sql" />
+    <Build Include="Tables\SrvPostfixCfg.sql" />
+    <Build Include="Tables\ClamavCfg.sql" />
+    <Build Include="Tables\SpamassasinCfg.sql" />
+    <Build Include="Tables\SrvSpamassasinCfg.sql" />
+    <Build Include="Tables\JabberCfg.sql" />
+    <Build Include="Tables\SrvJabberCfg.sql" />
+    <Build Include="Tables\PostfixCfgCat.sql" />
+    <Build Include="Tables\ClamavCfgCat.sql" />
+    <Build Include="Tables\SpamassasinCfgCat.sql" />
+    <Build Include="RunPar.sql" />
+    <Build Include="Tables\ParViewOption.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Init.sql" />
+    <Build Include="Tables\TntSrv.sql" />
+    <Build Include="Tables\SrvCat.sql" />
+    <Build Include="Tables\RunData.sql" />
+    <Build Include="Tables\SrvClamavCfg.sql" />
+    <Build Include="Tables\JabberCfgCat.sql" />
+    <Build Include="Tables\ParViewParViewOption.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\InitialData.sql" />
+  </ItemGroup>
+</Project>
