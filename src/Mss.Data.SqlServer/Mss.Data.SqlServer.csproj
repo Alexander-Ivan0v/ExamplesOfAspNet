@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3E2A7F4E-A9FD-4D7B-84CF-A0E80FC92ACF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mss.Data.SqlServer</RootNamespace>
+    <AssemblyName>Mss.Data.SqlServer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\..\lib\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\lib\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\..\lib\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mapping\CatMap.cs" />
+    <Compile Include="Mapping\CfgMap.cs" />
+    <Compile Include="Mapping\ChgLogMap.cs" />
+    <Compile Include="Mapping\ChgMap.cs" />
+    <Compile Include="Mapping\ChgStateGrpMap.cs" />
+    <Compile Include="Mapping\ChgStateMap.cs" />
+    <Compile Include="Mapping\ClamavCfg.cs" />
+    <Compile Include="Mapping\FlwMap.cs" />
+    <Compile Include="Mapping\JabberCfgMap.cs" />
+    <Compile Include="Mapping\LibMap.cs" />
+    <Compile Include="Mapping\ParMap.cs" />
+    <Compile Include="Mapping\ParSpecialMap.cs" />
+    <Compile Include="Mapping\ParTypeMap.cs" />
+    <Compile Include="Mapping\ParViewMap.cs" />
+    <Compile Include="Mapping\ParViewOptionMap.cs" />
+    <Compile Include="Mapping\PostfixCfg.cs" />
+    <Compile Include="Mapping\RolMap.cs" />
+    <Compile Include="Mapping\RunDataMap.cs" />
+    <Compile Include="Mapping\RunMap.cs" />
+    <Compile Include="Mapping\ScrMap.cs" />
+    <Compile Include="Mapping\SpamassasinCfgMap.cs" />
+    <Compile Include="Mapping\SrvMap.cs" />
+    <Compile Include="Mapping\TeamMap.cs" />
+    <Compile Include="Mapping\TntMap.cs" />
+    <Compile Include="Mapping\TskMap.cs" />
+    <Compile Include="Mapping\UsrMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Mapping\VersionedClassMap.cs" />
+    <Compile Include="QueryProcessors\AddCfgQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\AddChgLogQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\AddChgQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\AddChgStateGrpQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\AddChgStateQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\AddRunDataQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\AddRunQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\AddTntQuertProcessor.cs" />
+    <Compile Include="QueryProcessors\AddUsrQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\CfgQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\ChgLogQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\ChgQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\ChgStateGrpQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\ChgStateQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\GetTeamQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\ParQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\RolQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\RunDataQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\RunQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\ScrQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\TntQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\TskQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\UsrQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\AddTeamQueryProcessor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mss.Common\Mss.Common.csproj">
+      <Project>{664d6663-fa51-4e5f-854a-7cb0f112cd16}</Project>
+      <Name>Mss.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mss.Data\Mss.Data.csproj">
+      <Project>{dc86e624-c924-449c-a174-6954be79693d}</Project>
+      <Name>Mss.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
