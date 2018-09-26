@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DC86E624-C924-449C-A174-6954BE79693D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mss.Data</RootNamespace>
+    <AssemblyName>Mss.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Cat.cs" />
+    <Compile Include="Entities\Cfg.cs" />
+    <Compile Include="Entities\Chg.cs" />
+    <Compile Include="Entities\ChgLog.cs" />
+    <Compile Include="Entities\ChgState.cs" />
+    <Compile Include="Entities\ChgStateGrp.cs" />
+    <Compile Include="Entities\ClamavCfg.cs" />
+    <Compile Include="Entities\Flw.cs" />
+    <Compile Include="Entities\IVersionedEntity.cs" />
+    <Compile Include="Entities\JabberCfg.cs" />
+    <Compile Include="Entities\Lib.cs" />
+    <Compile Include="Entities\Par.cs" />
+    <Compile Include="Entities\ParSpecial.cs" />
+    <Compile Include="Entities\ParType.cs" />
+    <Compile Include="Entities\ParView.cs" />
+    <Compile Include="Entities\ParViewOption.cs" />
+    <Compile Include="Entities\PostfixCfg.cs" />
+    <Compile Include="Entities\Rol.cs" />
+    <Compile Include="Entities\Run.cs" />
+    <Compile Include="Entities\RunData.cs" />
+    <Compile Include="Entities\Scr.cs" />
+    <Compile Include="Entities\SpamassasinCfg.cs" />
+    <Compile Include="Entities\Srv.cs" />
+    <Compile Include="Entities\Team.cs" />
+    <Compile Include="Entities\Tnt.cs" />
+    <Compile Include="Entities\Tsk.cs" />
+    <Compile Include="Entities\Usr.cs" />
+    <Compile Include="Exceptions\ChildObjectNotFoundException.cs" />
+    <Compile Include="Exceptions\RootObjectNotFoundException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryProcessors\IAddCfgQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IAddChgLogQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IAddChgQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IAddChgStateGrpQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IAddChgStateQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IAddRunDataQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IAddRunQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IAddTntQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IAddUsrQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\ICfgQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IChgLogQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IChgQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IChgStateGrpQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IChgStateQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IParQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IRolQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IRunDataQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IRunQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IScrQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\ITeamQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\ITntQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\ITskQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IUsrQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IAddTeamQueryProcessor.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
