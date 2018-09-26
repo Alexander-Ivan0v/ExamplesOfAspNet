@@ -1,0 +1,4 @@
+GET http://localhost:49279/api/v1/team HTTP/1.1
+User-Agent: Fiddler
+Host: localhost:49279
+

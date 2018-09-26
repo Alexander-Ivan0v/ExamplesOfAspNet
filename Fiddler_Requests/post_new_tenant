@@ -1,0 +1,11 @@
+POST http://localhost:49279/api/v1/tenant HTTP/1.1
+User-Agent: Fiddler
+Host: localhost:49279
+Content-Length: 63
+Content-Type: text/json
+
+{
+    "IsDel":false,
+    "Cfg":"1",
+    "Name":"Tenant 3"
+}

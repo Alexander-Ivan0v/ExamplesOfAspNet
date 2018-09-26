@@ -1,0 +1,5 @@
+GET http://localhost:49279/api/v1/task/1/category/20/service/3/tenant/1/run/0 HTTP/1.1
+User-Agent: Fiddler
+Host: localhost:49279
+Authorization: Basic bXNzLmxvY2FsXEFkbWluaXN0cmF0b3I6UEBzc3cwcmQ=
+

@@ -1,0 +1,10 @@
+POST http://localhost:49279/api/v1/cfg HTTP/1.1
+User-Agent: Fiddler
+Host: localhost:49279
+Content-Length: 52
+Content-Type: text/json
+
+{
+    "IsDel" : "false",
+    "DefLogin":"login"
+}

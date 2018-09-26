@@ -1,0 +1,15 @@
+POST http://localhost:49279/api/v1/user HTTP/1.1
+User-Agent: Fiddler
+Host: localhost:49279
+Content-Length: 178
+Content-Type: text/json
+
+{
+    "Name":"Another user 2",
+    "IsDel":false,
+    "IsDisabled":false,
+    "ULogin":"NewULogin",
+    "UEmail":"aaa@bbb.com",
+    "Team":[1,2],
+    "Rol": [4,5,6]    
+}
