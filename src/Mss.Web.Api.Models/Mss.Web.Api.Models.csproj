@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5688E106-4600-47D3-94B5-7E5F36E5208D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mss.Web.Api.Models</RootNamespace>
+    <AssemblyName>Mss.Web.Api.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cat.cs" />
+    <Compile Include="Cfg.cs" />
+    <Compile Include="CfgWOChg.cs" />
+    <Compile Include="Chg.cs" />
+    <Compile Include="ChgLog.cs" />
+    <Compile Include="ChgMin.cs" />
+    <Compile Include="ChgState.cs" />
+    <Compile Include="ChgStateGrp.cs" />
+    <Compile Include="ChgStateMin.cs" />
+    <Compile Include="ChgWithLog.cs" />
+    <Compile Include="ClamavCfg.cs" />
+    <Compile Include="Dummy.cs" />
+    <Compile Include="Flw.cs" />
+    <Compile Include="FlwMin.cs" />
+    <Compile Include="ICatContaining.cs" />
+    <Compile Include="ILinkContaining.cs" />
+    <Compile Include="JabberCfg.cs" />
+    <Compile Include="Lib.cs" />
+    <Compile Include="Link.cs" />
+    <Compile Include="Par.cs" />
+    <Compile Include="ParSpecial.cs" />
+    <Compile Include="ParType.cs" />
+    <Compile Include="ParView.cs" />
+    <Compile Include="ParViewOption.cs" />
+    <Compile Include="ParWRunData.cs" />
+    <Compile Include="PostfixCfg.cs" />
+    <Compile Include="RolMin.cs" />
+    <Compile Include="Run.cs" />
+    <Compile Include="RunData.cs" />
+    <Compile Include="RunDataWOPar.cs" />
+    <Compile Include="RunMin.cs" />
+    <Compile Include="RunParams.cs" />
+    <Compile Include="RunResult.cs" />
+    <Compile Include="RunState.cs" />
+    <Compile Include="Scr.cs" />
+    <Compile Include="SpamassasinCfg.cs" />
+    <Compile Include="Srv.cs" />
+    <Compile Include="TeamWOChg.cs" />
+    <Compile Include="TntOnly.cs" />
+    <Compile Include="Tsk.cs" />
+    <Compile Include="TskMin.cs" />
+    <Compile Include="UsrJustName.cs" />
+    <Compile Include="UsrNew.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rol.cs" />
+    <Compile Include="Team.cs" />
+    <Compile Include="TeamV2.cs" />
+    <Compile Include="TeamOnly.cs" />
+    <Compile Include="Tnt.cs" />
+    <Compile Include="TntWOChg.cs" />
+    <Compile Include="Usr.cs" />
+    <Compile Include="UsrMid.cs" />
+    <Compile Include="UsrMin.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
